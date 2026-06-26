@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: all-saver-pro-web
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+
+  - type: worker
+    name: all-saver-pro-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py bot
+    envVars:
+      - key: ENVIRONMENT
+        value: production
