@@ -63,7 +63,7 @@ from aiogram import (
 
 from aiogram.filters import Command
 from aiogram.enums import ParseMode
-
+from aiogram.client.default import DefaultBotProperties
 
 
 # ============================
@@ -73,13 +73,7 @@ from aiogram.enums import ParseMode
 load_dotenv()
 
 
-BOT_TOKEN = os.getenv(
-
-    "BOT_TOKEN",
-
-    "8930218512:AAGF429l1ofoeW7HrRpM7_DKdqn-mdxAwqM"
-
-)
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 
 
@@ -101,13 +95,7 @@ ADMIN_ID = int(
 
 
 
-SECRET_KEY = os.getenv(
-
-    "SECRET_KEY",
-
-    "8930218512:AAGF429l1ofoeW7HrRpM7_DKdqn-mdxAwqM"
-
-)
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 
@@ -413,9 +401,11 @@ app.add_middleware(
 # ============================
 
 
-bot=Bot(
-    BOT_TOKEN,
-    parse_mode=ParseMode.HTML
+bot = Bot(
+    token=BOT_TOKEN,
+    default=DefaultBotProperties(
+        parse_mode=ParseMode.HTML
+    )
 )
 
 
