@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+aiogram
+sqlalchemy[asyncio]
+asyncpg
+aioredis
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+jinja2
+aiohttp
+gunicorn
+pydantic
+pydantic-settings
